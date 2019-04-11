@@ -6,26 +6,32 @@ namespace LearnXamarin
 {
     public partial class App : Application
     {
+        private MainPage mainPage;
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            mainPage = new MainPage();
+            MainPage = mainPage;
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            Console.WriteLine("Starting...");
+            mainPage.StartLoop();
         }
 
         protected override void OnSleep()
         {
-            // Handle when your app sleeps
+            Console.WriteLine("Sleeping...");
+            mainPage.StopLoop();
         }
 
         protected override void OnResume()
         {
-            // Handle when your app resumes
+            Console.WriteLine("Resuming...");
+            mainPage.StartLoop();
         }
     }
 }
